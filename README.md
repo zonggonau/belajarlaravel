@@ -156,3 +156,95 @@ Song::factory(5)->create();
 
 kemudian tambahkan ```SongSeeder::class``` pada file **DatabaseSeeder.php**
 ![database_seeder](https://github.com/zonggonau/belajarlaravel/assets/45115034/c94bc524-f5de-48d6-9bde-137323e75838)
+
+# Membuat controller
+
+Misalkan kita sudah punya model, migration, factory dan seeder. Hal selanjutnya kita akan membuat controller untuk menampilkan data.
+
+Membuat controller baru unton model **Song**
+```
+php artisan make:controller SongController
+```
+
+selain itu kita juga bisa buat controller baru sekalian menentukan model serta menambahkan resource / methods di dalamnya
+```
+php artisan make:controller SongController --model=Song --resource
+```
+
+modifikasi di bagian controller
+index: menampilkan halaman utama
+
+```
+public function index()
+{
+    return 'song > index';
+}
+```
+
+create: menampilkan halaman dan form create
+```
+public function create()
+{
+    return 'song > create';
+}
+```
+
+edit: menkampilkan halaman dan form edit
+```
+public function edit(Song $song)
+{
+    return 'song > edit';
+}
+```
+
+# Membuat route
+
+Setelah kita sudah punya model, migration, factory dan seeder dan juga controller selanjutnya kita akan bisa membuat route untuk menampilkan data di url/web browser.
+
+di bagian folder routes buka file ```web.php``` dan tambahkan script berikut
+
+```
+// song
+Route::prefix('songs')->group(function () {
+
+    Route::controller(SongController::class)->group(function(){
+
+        Route::get('/','index')->name('songs');
+        Route::get('/create','create')->name('songs.create');
+        Route::get('/edit','edit')->name('songs.edit');
+
+    });
+
+});
+```
+
+## cek daftar route yang sudah dibuat
+
+gunakan terminal dan jalankan perintah
+```
+php artisan route:list
+```
+
+Jika berhasil maka semua route yang sudah ditambahkan akan tampil
+
+Silahkan lanjutkan dengan menampilkan project di web browser dan kunjungi route / halaman yang sudah dibuat
+
+pada terminal jalankan
+
+```
+php aritsan serve
+```
+
+kunjungi alamat songs
+```
+http://127.0.0.1:8000/songs
+```
+halaman create song
+```
+http://127.0.0.1:8000/songs/create
+```
+halaman edit song
+```
+http://127.0.0.1:8000/songs/edit
+```
+

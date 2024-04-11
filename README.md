@@ -38,3 +38,25 @@ Membuat migration saja
 ```
 php artisan make:migration create_songs_table
 ```
+
+download perubahan baru dari remote
+```
+git pull
+```
+
+
+## clone project pertama kali
+
+setup ```.env``` atur koneksi database
+
+Generate key
+```
+php artisan key:generate
+```
+
+install composer
+```
+composer install
+```
+
+lakukan migrasi database bisa gunakan ```php artisan migrate``` atau ```php artisan migrate:fresh``` atau migrasi dengan seeder ```php artisan migrate:fresh --seed```

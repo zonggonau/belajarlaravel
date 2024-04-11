@@ -197,6 +197,9 @@ public function edit(Song $song)
 }
 ```
 
+![controller_song](https://github.com/zonggonau/belajarlaravel/assets/45115034/d26e7af9-25c0-4a95-b08d-d3691ca470f0)
+
+
 # Membuat route
 
 Setelah kita sudah punya model, migration, factory dan seeder dan juga controller selanjutnya kita akan bisa membuat route untuk menampilkan data di url/web browser.
@@ -217,6 +220,7 @@ Route::prefix('songs')->group(function () {
 
 });
 ```
+![route-song](https://github.com/zonggonau/belajarlaravel/assets/45115034/ff2dfa58-1f7b-49e6-97a0-16db50ff9c52)
 
 ## cek daftar route yang sudah dibuat
 
@@ -224,6 +228,8 @@ gunakan terminal dan jalankan perintah
 ```
 php artisan route:list
 ```
+![image](https://github.com/zonggonau/belajarlaravel/assets/45115034/5283b149-6909-4bf9-915a-8fb198045a8e)
+
 
 Jika berhasil maka semua route yang sudah ditambahkan akan tampil
 

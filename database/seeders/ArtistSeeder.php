@@ -13,10 +13,6 @@ class ArtistSeeder extends Seeder
      */
     public function run(): void
     {
-        Artist::create([
-            'name' => 'Mambesak',
-            'slug' => 'mambesak',
-            'description' => 'Mambesak Group',
-        ]);
+        Artist::factory(10)->create();
     }
 }

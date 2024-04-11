@@ -79,3 +79,39 @@ jalankan migrasi dengan disertakan sekalian isi data di database gunakan ```--se
 ```
 php artisan migrate:fresh --seed
 ```
+
+## membuat seeder
+
+misalkan sudah ada file migration dan kemudian kita akan buat file seeder terpisah
+
+buat seeder baru untuk table ```songs```
+```
+php artisan make:seeder SongSeeder
+```
+
+buat seeder baru untuk table ```artists```
+```
+php artisan make:seeder ArtistSeeder
+```
+
+## membuat model
+misalkan kita sudah punya migrasi dan juga seeder
+
+membuat model baru untuk table ```songs```
+```
+php artisan make:model Song
+```
+
+membuat model baru untuk table ```artists```
+```
+php artisan make:model Artis
+```
+
+## Membuat factory
+
+misalkan kita sudah punya model dengan nama Song
+kemudian kita akan buat factory yang terhubung ke model Song
+
+```
+php artisan make:factory SongFactory --model=Song
+```

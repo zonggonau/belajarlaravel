@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             
             $table->string('title')->nullable();
+            $table->string('cover')->nullable();
+            $table->text('lyrics')->nullable();
+            $table->text('youtube_embed_script')->nullable();
             $table->text('description')->nullable();
 
             $table->timestamps();

@@ -115,3 +115,44 @@ kemudian kita akan buat factory yang terhubung ke model Song
 ```
 php artisan make:factory SongFactory --model=Song
 ```
+### Model **Song**
+tidak banyak perubahan yang dilakukan
+pastikan saja menggunakan
+```
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+```
+dan juga
+```
+use HasFactory;
+```
+
+![model](https://github.com/zonggonau/belajarlaravel/assets/45115034/ed04ad5a-1892-4e02-9d3c-71b30a8ecc83)
+
+### Migration
+![migration](https://github.com/zonggonau/belajarlaravel/assets/45115034/51a27197-64d4-4aab-99ec-e0f6cf685fe1)
+
+### Factory
+pastikan menyertakan atau menggunakan model song
+```
+use App\Models\Song;
+```
+tambahkan juga
+```
+protected $model = Song::class;
+```
+pastikan nama field di factory sama dengan yang ada di migration
+bisa juga menggunakan faker, berikut contoh untuk membuat sebuah kalimat
+```
+fake()->sentence()
+```
+![factory](https://github.com/zonggonau/belajarlaravel/assets/45115034/094c1bd1-77b8-4613-933d-455afaf153bd)
+
+### Seeder
+tambahkan script berikut untuk membuat seeder bedasarkan factory yang sudah dibuat
+```
+Song::factory(5)->create();
+```
+![seeder](https://github.com/zonggonau/belajarlaravel/assets/45115034/d582a063-1f0b-4d74-a7a5-3865d37e5367)
+
+kemudian tambahkan ```SongSeeder::class``` pada file **DatabaseSeeder.php**
+![database_seeder](https://github.com/zonggonau/belajarlaravel/assets/45115034/c94bc524-f5de-48d6-9bde-137323e75838)
